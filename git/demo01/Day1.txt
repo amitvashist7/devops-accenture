@@ -1,0 +1,271 @@
+    1  cat /etc/redhat-release 
+    2  yum install epel-release git -y 
+    3* git --ver
+    4  git --version 
+    5  git clone https://github.com/amitvashist7/devops-accenture.git
+    6  ls
+    7  cat /etc/*-release 
+    8  ls
+    9  git config --global --list 
+   10  cd devops-accenture/
+   11  git config --global --list 
+   12  git init 
+   13  git config --global --list 
+   14  ls
+   15  ls -a 
+   16  git config --list 
+   17  cat README.md 
+   18  mkdir git/demo01
+   19  mkdir git/demo01 -p 
+   20  ls
+   21  cd git/
+   22  ls
+   23  cd demo01/
+   24  ls
+   25  pwd
+   26  echo "Hello World" > README.md
+   27  cat README.md 
+   28  git status 
+   29  git add .
+   30  git status 
+   31  cd ../../
+   32  ls
+   33  git add .
+   34  git status 
+   35  cd - 
+   36  git status 
+   37  cd -
+   38  git status 
+   39  git commit -m "First Commit"
+   40  git config --global user.email "amitvashist7@gmail.com"
+   41  git config --global user.name "Amit Kumar"
+   42  git commit -m "First Commit"
+   43  git status 
+   44  git logs 
+   45  git log
+   46  date
+   47  git push orgin master
+   48  git push origin master
+   49  ls
+   50  vim git/demo01/README.md 
+   51  vi git/demo01/README.md 
+   52  ls
+   53  git status 
+   54  echo "Hello" git/demo01/README.txt 
+   55  echo "Hello" > git/demo01/README.txt 
+   56  git status 
+   57  git add .
+   58* 
+   59  git commit -m "Second Commit"
+   60  git log
+   61  git push 
+   62  history 
+   63  echo "My Project Dir" >> git/demo01/myprojectfile.txt
+   64  git add . 
+   65  git commit -m "Project has file has been created under demo01"
+   66  git push 
+   67  echo "Apple Pie" | git hash-object --stdin -w 
+   68  git cat-file 23991897e13e47ed0adb91a0082c31c82fe0cbe5 -t  
+   69  git cat-file 23991897e13e47ed0adb91a0082c31c82fe0cbe5 -p
+   70  echo "Amit Vahsist" | git hash-object --stdin -w 
+   71  git cat-file 09e9ea2cfb4304d4ebe9ca5c42279458edc4f697 -p
+   72  ls
+   73  cd .git/
+   74  ls
+   75  cd objects/
+   76  ls
+   77  cd 09/
+   78  ls
+   79  file e9ea2cfb4304d4ebe9ca5c42279458edc4f697 
+   80  cat 09e9ea2cfb4304d4ebe9ca5c42279458edc4f697
+   81  cat e9ea2cfb4304d4ebe9ca5c42279458edc4f697 
+   82  git cat-file 09e9ea2cfb4304d4ebe9ca5c42279458edc4f697 -p
+   83  git log 
+   84  git diff abb062f5..971abe70
+   85  git diff HEAD~1
+   86  git diff HEAD-1
+   87  git diff HEAD~1
+   88  cd ../../
+   89  l
+   90  ls
+   91  cd ..
+   92  ls
+   93  git diff HEAD~1
+   94  git diff HEAD~2
+   95  ls
+   96  cat .git/HEAD 
+   97  cat refs/heads/master
+   98  cat .git/refs/heads/master
+   99  git log
+  100  cat refs/heads/master
+  101  cat .git/refs/heads/master
+  102  cat .git/HEAD 
+  103  echo "Update1" >> git/demo01/README.txt 
+  104  git commit -a "Update1"
+  105  git commit -m "Update1"
+  106  git commit -a -m "Update1"
+  107  git push 
+  108  cat .git/refs/heads/master
+  109  git log 
+  110  git checkout HEAD~1
+  111  cat git/demo01/README.txt 
+  112  git log
+  113  git checkout d89005ab051a52da22ad1bc55e06d19fe10dd598
+  114  ls
+  115  cat git/demo01/README.txt 
+  116  git reset --soft HEAD~1
+  117  cat git/demo01/README.txt 
+  118  git log 
+  119  git reset --hard HEAD~1
+  120  git log 
+  121  cat git/demo01/README.txt 
+  122  ls
+  123  echo  "Hello Amit" > mycred.txt
+  124  ls
+  125  ls -a 
+  126  touch .gitignore
+  127  pwd
+  128  vi .gitignore 
+  129  git status 
+  130  pwd
+  131  vim .gitignore 
+  132  vi .gitignore 
+  133  ls
+  134* 
+  135  git commit -a -m "Update2"
+  136  git add . 
+  137  git status 
+  138  git commit -m "Update2"
+  139  git push 
+  140  git push -f 
+  141  ls
+  142  git log
+  143  git config --global core.excludesFile .gitignore 
+  144  ls
+  145  cd ..
+  146  ls
+  147  rm -rf devops-accenture
+  148  git clone https://github.com/amitvashist7/devops-accenture.git
+  149  ls
+  150  cd devops-accenture/
+  151  ls
+  152  touch .gitignore
+  153  git config --global core.excludesFile .gitignore 
+  154  git add . 
+  155  git status 
+  156  git show HEAD
+  157  git showlog 
+  158  git shortlog 
+  159  git shortlog HEAD~1=2
+  160  git shortlog HEAD~1
+  161  git branch
+  162  git branch -r 
+  163  git tags 
+  164* 
+  165  git config --list 
+  166  cd ..
+  167  ls
+  168  mkdir amit
+  169  cd amit/
+  170  ls
+  171  git config --list 
+  172  git init .
+  173  ls
+  174  git config --list 
+  175  git remote add origin https://github.com/amitvashist7/devops-accenture.git
+  176  git config --list 
+  177  ls
+  178  cd - 
+  179  ls
+  180  cd devops-accenture/
+  181  ls
+  182  git branch
+  183  git branch dev
+  184  git branch
+  185  git branch prod
+  186  git branch
+  187  git checkout dev
+  188  git branch
+  189  ls
+  190  cd git/
+  191  ls
+  192  cd demo01/
+  193  ls
+  194  echo "My Dev Branch" > Dev.txt
+  195  cat Dev.txt 
+  196  git add . 
+  197  git commit -m "First Commit in Dev Branch"
+  198  git push 
+  199  git push origin/dev 
+  200  git push origin dev 
+  201  git branch
+  202  echo "Update2 " >> Dev.txt
+  203  git commit -a -m "Update in Dev Branch"
+  204  git push 
+  205  git branch
+  206  git checkout prod
+  207  echo "My Prod Branch" >>  Prod.txt
+  208  git commit -a -m "Prod Branch"
+  209  git add .
+  210  git commit -a -m "Prod Branch"
+  211  ls
+  212  git push origin prod
+  213  ls
+  214  git log 
+  215  git branch 
+  216  git merge --help
+  217  ls
+  218  git checkout master
+  219  git merge prod
+  220  git branch
+  221  git log 
+  222  ls
+  223  git merge dev
+  224  git status 
+  225  git push 
+  226  git merge dev
+  227  ls
+  228  git log 
+  229  git branch
+  230  git tag myapp_2019_01_09
+  231  git tag 
+  232  ls
+  233  cd ..
+  234  ls
+  235  cd ..
+  236  ls
+  237  cd ..
+  238  ls
+  239  cd devops-accenture/
+  240  ls
+  241  cd  .git/
+  242  ls
+  243  cd info/
+  244  ls
+  245  cd ..
+  246  cd ls
+  247  cd ..
+  248  ls
+  249  git status 
+  250  git push tags
+  251  git push tag
+  252  git push 
+  253  git tag --help
+  254  git tag
+  255  git push origin myapp_2019_01_09
+  256  ls
+  257  cd git/
+  258  ls
+  259  cd demo01/
+  260  ls
+  261  git del Dev.txt Prod.txt 
+  262  git delete Dev.txt Prod.txt 
+  263  git remove Dev.txt Prod.txt 
+  264  git rm Dev.txt Prod.txt 
+  265  ls
+  266  git commit -a -m "Removed Prod & Dev Files"
+  267  git push 
+  268  git tag myapp_2019_01_09_u1
+  269  git push origin myapp_2019_01_09_u1
+  270  ls
+  271  history > Day1.txt

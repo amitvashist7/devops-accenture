@@ -1,0 +1,48 @@
+node { 
+
+notify('Started')    
+
+try {
+stage('Checkout Git Repo') {
+    // some block
+   git branch: 'prod', url: 'https://github.com/amitvashist7/devops-accenture.git'
+}    
+
+def project_path = "jenkins/jenkins2-course-spring-petclinic"
+
+dir(project_path){
+
+stage('Package-Compile') {    
+sh 'mvn clean compile'
+}
+
+stage('Package') {    
+sh 'mvn package'
+}
+
+stage('Package Archiva'){
+ archiveArtifacts "target/*?ar"
+}
+}
+notify('Completed') }
+ catch (err) {
+    notify ("Error ${err}")
+    currentBuild.result = 'FAILURE'
+}
+}
+
+
+
+def notify(status){
+    emailext (
+        to: "amitvashist7@gmail.com",
+        subject: "${status}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+        body: """<p>${status}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+        <p>Check console output at <a href='${env.BUILD_URL}'> ${env.JOB_NAME}
+         [${env.BUILD_NUMBER}]</a></p>""",
+        
+        )
+ 
+}
+ 
+    

@@ -1,0 +1,24 @@
+---
+
+- hosts: web
+  
+  tasks:
+  - name: Install Apache Packages
+    yum: name=httpd state=present
+
+  - name: Start Apache Service
+    service: name=httpd state=started enabled=True
+
+- hosts: db
+  tasks:
+  - name: Install MariaDB Packages
+    yum: name=mariadb-server state=present
+
+  - name: Start MariaDB Service
+    service: name=mariadb state=started enabled=True
+
+- hosts: all
+  tasks:
+  - name: Stop the Firewall
+    service: name=firewalld state=stopped enabled=False
+

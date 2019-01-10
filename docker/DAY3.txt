@@ -426,3 +426,59 @@
   426  ls
   427  mkdir docker 
   428  history > docker/DAY3.txt
+  429  cat docker/DAY3.txt 
+  430  git add . 
+  431  git commit -m "Docker History"
+  432  git push 
+  433  docker ps 
+  434  ls
+  435  cd docker/
+  436  ls
+  437  mkdir apache
+  438  cd apache/
+  439  ls
+  440  vim Dockerfile
+  441  vi Dockerfile
+  442  yum install vim -y 
+  443  vim Dockerfile
+  444  ls
+  445  docker build -t myapache:v1 . 
+  446  vim Dockerfile 
+  447  docker build -t myapache:v1 . 
+  448  ls
+  449  docker images 
+  450  docker run -d myapache:v1
+  451  docker ps 
+  452  docker inspect 3ce054ad7918
+  453  curl 172.17.0.6
+  454  ls
+  455  vim index.html
+  456  ls
+  457  vim Dockerfile 
+  458  docker build -t myapache:v2 . 
+  459  docker images 
+  460  docker run -d myapache:v2
+  461  curl 172.17.0.6
+  462  curl 172.17.0.7
+  463  curl localhost
+  464  curl 172.17.0.7
+  465  docker ps 
+  466  vim Dockerfile 
+  467  docker run -d myapache:v3
+  468  ls
+  469  vim index.html 
+  470  docker build -t myapache:v3 . 
+  471  docker run -d myapache:v3 
+  472  docker ps 
+  473  curl localhost
+  474  curl 172.17.0.8
+  475  docker run -d -p 10000:80 myapache:v3 
+  476  docker ps 
+  477  curl localhost
+  478  yum install net-tools -y 
+  479  netstat -tulnp
+  480  curl localhost:10000
+  481  ls
+  482  cd ..
+  483  ls
+  484  history > DAY3.txt 

@@ -1,0 +1,43 @@
+---
+# Update1: When Clause
+
+- hosts: web:db
+  vars:
+    http_port: 80
+    doc_root: /var/www/html/acc
+    doc_dir: /acc/
+  
+  tasks:
+  - name: Install Httpd Packages
+    yum: name=httpd state=present
+    when: ansible_os_family == "RedHat"
+
+  - name: Install Apache Packages
+    apt: name=apache2 state=present
+    when: ansible_os_family == "Debain"
+
+  - name: Start Apache Service
+    service: name=httpd state=started enabled=True
+
+  - name: Deploy Custom Apache Config
+    template: src=templates/httpd.j2 dest=/etc/httpd/conf/httpd.conf
+    notify:
+      - Restart Apache
+
+  - name: Meta Force to Flush Handlers
+    meta: flush_handlers
+
+  - name: Create Documet Dir. Location
+    file: path={{doc_root}} state=directory
+
+
+  - name: Deploy Sample Site File
+    template: src=templates/index.j2 dest={{doc_root}}/index.html
+
+
+  - name: Deploy Info Site File
+    template: src=templates/info.j2 dest={{doc_root}}/info.html
+
+  handlers:
+  - name: Restart Apache
+    service: name=httpd state=restarted

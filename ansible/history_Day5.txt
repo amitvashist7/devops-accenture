@@ -1,0 +1,447 @@
+    1  exit
+    2  echo "Ansible Demos"
+    3  yum install ansible vim -y
+    4  ls
+    5  cd ansible/
+    6  ls
+    7  mkdir demo1
+    8  cd demo1/
+    9  ls
+   10  vim inventory
+   11  ansible 172.31.0.11 -i inventory -u root -m ping -k 
+   12  ansible all -i inventory -u root -m ping -k 
+   13  ssh 172.31.0.12
+   14  ls
+   15  cat /root/.ssh/known_hosts 
+   16  ansible all -i inventory -u root -m ping -k 
+   17  ansible all -i inventory -u root -m command -a 'df -h' -k 
+   18  ansible all -i inventory -u root -m command -a 'uname -a' -k 
+   19  cat /etc/*-release 
+   20  ansible all -i inventory -u root -m command -a 'cat /etc/*-release' -k 
+   21  cat /etc/*-release 
+   22  ansible all -i inventory -u root -m command -a 'cat /etc/*-release' -k 
+   23  cat /etc/*-release 
+   24  ansible all -i inventory -u root -m shell -a 'cat /etc/*-release' -k 
+   25  ansible all -i inventory -u root -m shell -a 'df -h' -k 
+   26  history 
+   27  ls
+   28  cd ..
+   29  ls
+   30  history > history_Day4.txt
+   31  ls
+   32  cd ..
+   33  ls
+   34  cd ansible/
+   35  ls
+   36  cp -rf demo1 demo2
+   37  cd demo2/
+   38  ls
+   39  vim inventory 
+   40  ansible web -i inventory -u root -m shell -a 'df -h' -k 
+   41  ansible db -i inventory -u root -m shell -a 'df -h' -k 
+   42  ls
+   43  vim inventory 
+   44  passwd 
+   45  vi /etc/ssh/sshd_config 
+   46  service sshd restart
+   47  vim inventory 
+   48  ansible local -i inventory -u root -m shell -a 'df -h' -k 
+   49  ansible local -i inventory -u root -m shell -a 'df -h' -k -vvv
+   50  ssh 172.31.0.10
+   51  ansible local -i inventory -u root -m shell -a 'df -h' -k 
+   52  vi inventory 
+   53  ssh 127.0.0.1
+   54  vi inventory 
+   55  ansible all -i inventory -u root -m shell -a 'df -h' -k 
+   56  vi inventory 
+   57  ansible datacenter -i inventory -u root -m shell -a 'df -h' -k 
+   58  ansible datacenter -i inventory -u root -m shell -a 'uname -a ' -k 
+   59  vi inventory 
+   60  ansible datacenter -i inventory -m shell -a 'uname -a' 
+   61  ls
+   62  history  > ../history_Day4.txt 
+   63  ls
+   64  git add .
+   65  git commit -m "Ansible: Demo1 & Demo2"
+   66  git branch
+   67  git push origin prod
+   68  ls
+   69  cd ..
+   70  ls
+   71  cp -rf demo2 demo3
+   72  ls
+   73  cd demo3/
+   74  mkdir {prod,test}/{group_vars,host_vars} -p 
+   75  tree .
+   76  cp -rf inventory prod/
+   77  cp -rf inventory test/
+   78  ls
+   79  rm inventory 
+   80  tree 
+   81  vim prod/group_vars/all
+   82  cat  prod/inventory 
+   83  vim prod/group_vars/web
+   84  vim prod/group_vars/db
+   85  ls
+   86  tree .
+   87  ansible web -i prod/inventory -m user -a "name={{username}} password=12345"
+   88  4
+   89  ansible db -i prod/inventory -m user -a "name={{username}} password=12345"
+   90  ansible all -i prod/inventory -m user -a "name={{username}} password=12345"
+   91  ls
+   92  cat prod/inventory 
+   93  vim prod/host_vars/172.31.0.12
+   94  ansible all -i prod/inventory -m user -a "name={{username}} password=12345"
+   95  ls
+   96  vim prod/inventory 
+   97  ansible all -i prod/inventory -m user -a "name={{username}} password=12345"
+   98  tree .
+   99  cd ..
+  100  ls
+  101  tree demo3/
+  102  ls
+  103  vim demo3/prod/inventory 
+  104  ls
+  105  cd demo3/prod/host_vars/
+  106  ls
+  107  mv 172.31.0.12 db02
+  108  ls
+  109  cd ..
+  110  ls
+  111  cd ..
+  112  tree .
+  113  ansible all -i prod/inventory -m user -a "name={{username}} password=12345"
+  114  ls
+  115  cd ..
+  116  ls
+  117  history > history_Day4.txt 
+  118  git add . 
+  119  git commit -m "Scale Out Inventory"
+  120  git push orgin prod
+  121  git push origin prod
+  122  ansible -v 
+  123  ansible --version 
+  124  cd /etc/ansible/
+  125  ls
+  126  cat hosts 
+  127  ls
+  128  cat ansible.cfg 
+  129  vim ansible.cfg 
+  130  ls
+  131  cd /etc/ansible/
+  132  ls
+  133  cd 
+  134  ls
+  135  cd devops-accenture/ansible/
+  136  ls
+  137  cp -rf demo3 demo4
+  138  ls
+  139  cp -rf demo2 demo4
+  140  cd demo4
+  141  ls
+  142  rm -rf * 
+  143  cp -rf ../demo2/* .
+  144  ls
+  145  ansible all -i inventory -u root -m ping -k 
+  146  cat /root/.ssh/known_hosts 
+  147  > /root/.ssh/known_hosts 
+  148  cat /root/.ssh/known_hosts 
+  149  ansible all -i inventory -u root -m ping -k 
+  150  cat /root/.ssh/known_hosts 
+  151  ansible all -i inventory -u root -m ping -k 
+  152  ansible all -i inventory -u root -m command -a 'uanme -a' -k 
+  153  cat /root/.ssh/known_hosts 
+  154  grep -i host_key /etc/ansible/ansible.cfg 
+  155  ls
+  156  mkdir devenv
+  157  ls
+  158  mv inventory 
+  159  mv inventory devenv/
+  160  ls
+  161  cd devenv/
+  162  ls
+  163  vim ansible.cfg
+  164  ls
+  165  cat /root/.ssh/known_hosts 
+  166  ansible all -i inventory -u root -m command -a 'uanme -a' -k 
+  167  ansible all -i inventory -u root -m command -a 'uname -a' -k 
+  168  cat /root/.ssh/known_hosts 
+  169  vim ansible.cfg 
+  170  > /root/.ssh/known_hosts 
+  171  ls
+  172  cd ..
+  173  ls
+  174  cd ..
+  175  ls
+  176  cd demo3/prod/
+  177  ls
+  178  ansible all -i inventory -u root -m command -a 'uname -a' -k 
+  179  cd ../../demo4/devenv/
+  180  ls
+  181  ansible all -i inventory -u root -m command -a 'uname -a' -k 
+  182  ls
+  183  vim ansible.cfg 
+  184  grep -i remote_user /etc/ansible/ansible.cfg 
+  185  grep -i inventory /etc/ansible/ansible.cfg 
+  186  grep -i ssh /etc/ansible/ansible.cfg 
+  187  ls
+  188  ansible all  -m command -a 'uname -a' -k 
+  189  ansible all  -m command -a 'uname -i' -k 
+  190  ls
+  191  cat inventory 
+  192  ansible all  -m command -a 'uname -i' 
+  193  vi inventory 
+  194  ansible all  -m command -a 'uname -i' 
+  195  ansible all  -m command -a 'uname -r' 
+  196  ls
+  197  vim inventory 
+  198  ansible all  -m command -a 'df -h' 
+  199  ls
+  200  ansible all  -m command -a 'df -h' -k 
+  201  ls
+  202  cd ..
+  203  ls
+  204  git add . 
+  205  git commit -m "Ansible Config"
+  206  git push origin prod
+  207  ls
+  208  ansible-doc -l 
+  209  ls
+  210  ansible-doc yum 
+  211  ansible-doc service
+  212  ansible-doc win
+  213  ansible-doc -l | grep -i winrm
+  214  ansible-doc -l | grep -i win
+  215  ansible-doc win_share
+  216  [Aqq
+  217  ansible
+  218  exit
+  219  ansible-doc win_package
+  220  LS
+  221  ls
+  222  cd devops-accenture/
+  223  ls
+  224  cd ansible/
+  225  ls
+  226  cd demo4/
+  227  ls
+  228  cd devenv/
+  229  ls
+  230  cat inventory 
+  231  ansible web -m yum -a "name=httpd state=present" -k 
+  232  ansible web -m service -a "name=httpd state=started" -k 
+  233  ls
+  234  ansible all -i inventory -u root -m command -a 'uanme -a' -k 
+  235  ansible all -m command -a 'uanme -a' -k 
+  236  ansible all -m command -a 'uname -a' -k 
+  237  ansible web -m command -a 'uname -a' -k 
+  238  ansible db -m command -a 'uname -a' -k 
+  239  ansible datacenter -m command -a 'uname -a' -k 
+  240  ansible web:db -m command -a 'uname -a' -k 
+  241  vi inventory 
+  242  ansible prod -m command -a 'uname -a' -k 
+  243  ansible 'prod:&web' -m command -a 'uname -a' -k 
+  244  ansible 'datacenter' -m command -a 'uname -a' -k 
+  245  ansible 'datacenter:!local' -m command -a 'uname -a' -k 
+  246  ls
+  247  cd ..
+  248  ls
+  249  cp -rf demo4 demo5
+  250  ls
+  251  cd demo5/
+  252  ls
+  253  cd devenv/
+  254  ls
+  255  vim web.yaml
+  256  ansible-playbook web.yaml 
+  257  ansible-playbook web.yaml -k 
+  258  vim web.yaml
+  259  ansible-playbook web.yaml -k 
+  260  ls
+  261  rm web.retry 
+  262  ls
+  263  cp -rf web.yaml web_db_firewall.yaml 
+  264  ls
+  265  vim web_db_firewall.yaml 
+  266  ansible-playbook web_db_firewall.yaml -k 
+  267  vi web_db_firewall.yaml 
+  268  ansible-playbook web_db_firewall.yaml -k --check
+  269  vi web_db_firewall.yaml 
+  270  ansible-playbook web_db_firewall.yaml  --check
+  271  ansible-playbook web_db_firewall.yaml  
+  272  ls
+  273  cat web_db_firewall.retry
+  274  ansible-playbook web_db_firewall.yaml  --limit @/root/devops-accenture/ansible/demo5/devenv/web_db_firewall.retry
+  275  ls
+  276  cd ..
+  277  ls
+  278  cd ..
+  279  ls
+  280  git add .
+  281  git commit -m "Playbook & Failed Play"
+  282  git push origin prod
+  283  ls
+  284  cd ls
+  285  cp -rf demo5 demo6 
+  286  ls
+  287  cd demo6/
+  288  ls
+  289  cd devenv/
+  290  ls
+  291  rm -rf web_db_firewall.*
+  292  ls
+  293  vim web.yaml 
+  294  cat web.yaml | grep -i templates 
+  295  ls
+  296  mkdir temaplates
+  297  ls
+  298  mv temaplates templates
+  299  ls
+  300  scp -r 172.31.0.11:/etc/httpd/conf/httpd.conf templates/httpd.j2
+  301  ls
+  302  vim templates/httpd.j2 
+  303  echo "Hello World" > templates/index.j2
+  304  vim templates/info.j2
+  305  ansible-playbook web.yaml -k 
+  306  vi web.yaml 
+  307  ansible-playbook web.yaml -k 
+  308  vim web.yaml 
+  309  ansible-playbook web.yaml -k 
+  310  ls
+  311  cd ..
+  312  ls
+  313  cd ..
+  314  ls
+  315  git add . 
+  316  git commit -m "Apache & Templates Deployment"
+  317  git push origin prod
+  318  ls
+  319  cd demo6/
+  320  ls
+  321  cd devenv/
+  322  ls
+  323  vim web.yaml 
+  324  ls
+  325  cat templates/info.j2 
+  326  ls
+  327  grep -i "{{" templates/httpd.j2 
+  328  ls
+  329  vim web.yaml 
+  330  l
+  331  ls
+  332  ansible-playbook web.yaml -k 
+  333  vim web.yaml 
+  334  ansible-playbook web.yaml -k 
+  335  vim web.yaml 
+  336  ansible-playbook web.yaml -k 
+  337  vim web.yaml 
+  338  ansible-playbook web.yaml -k 
+  339  vim web.yaml 
+  340  ansible-playbook web.yaml -k 
+  341  vim web.yaml 
+  342  ansible-playbook web.yaml -k 
+  343  ls
+  344  cd ls
+  345  ls
+  346  cd ..
+  347  ls
+  348  cd ..
+  349  ls
+  350  cp -rf demo6 demo7 
+  351  ls
+  352  cd demo7/ 
+  353  ls
+  354  mv devenv/ .
+  355  mv devenv/* .
+  356  ls
+  357  rm -rf devenv/
+  358  ls
+  359  mkdir roles
+  360  ls
+  361  cd roles/
+  362  ls
+  363  ansible-galaxy init webserver
+  364  ls
+  365  tree webserver/
+  366  ls
+  367  cd webserver/
+  368  ls
+  369  vim tasks/main.yml 
+  370  vim vars/main.yml 
+  371  ls
+  372  vim tasks/main.yml 
+  373  vim handlers/main.yml 
+  374  ls
+  375  cp -rf ../../templates/* templates/
+  376  ls
+  377  vim templates/info.j2 
+  378  ls
+  379  cd ..
+  380  ls
+  381  cd ..
+  382  ls
+  383  cat web.yaml 
+  384  ls
+  385  vim webserver.ymal
+  386  vim webserver.yaml
+  387  ls
+  388  ls -ltr roles/
+  389  ansible-playbook webserver.yaml -k 
+  390  ls
+  391  cd roles/
+  392  ls
+  393  tree .
+  394  cat webserver/tests/inventory 
+  395  cat webserver/tests/test.yml 
+  396  ansible-galaxy init server-common
+  397  ls
+  398  cd server-common/
+  399  ls
+  400  cd tests/
+  401  cd ../tasks/
+  402  ls
+  403  cat ../README.md 
+  404  ls
+  405  vim common-user.yaml
+  406  cat /etc/shadow
+  407  vim common-user.yaml
+  408  vim ntp.yaml
+  409  ls
+  410  vim main.yml 
+  411  ls
+  412  cd ..
+  413  ls
+  414  cd ..
+  415  ls -ltr 
+  416  cd ..
+  417  ls
+  418  cp -rf webserver.yaml server-common.yaml
+  419  ls
+  420  vim server-common.yaml 
+  421  ansible-playbook server-common.yaml -k 
+  422  ls -ltr 
+  423  vim site.yaml
+  424  ansible-playbook site.yaml -k 
+  425  vim site.yaml
+  426  ansible-playbook site.yaml -k 
+  427  vi site.yaml 
+  428  ansible-playbook site.yaml --tag web -k 
+  429  ansible-playbook site.yaml --tag common -k 
+  430  ansible-playbook site.yaml --tag common --limit web -k 
+  431  cat inventory 
+  432  ls
+  433  cat  server-common.yaml
+  434  ansible-playbook site.yaml --tag common --limit db -k 
+  435  cd ..
+  436  ls
+  437  git add . 
+  438  git commit -m "Roles: Server-Common & Webserver"
+  439  ls
+  440  cd demo7/
+  441  ls
+  442  cat site.yaml 
+  443  cat site.retry 
+  444  ls
+  445  cd ..
+  446  ls
+  447  history > history_Day5.txt

@@ -1,0 +1,116 @@
+    1  echo "Ansible Demos"
+    2  yum install ansible vim -y
+    3  ls
+    4  cd ansible/
+    5  ls
+    6  mkdir demo1
+    7  cd demo1/
+    8  ls
+    9  vim inventory
+   10  ansible 172.31.0.11 -i inventory -u root -m ping -k 
+   11  ansible all -i inventory -u root -m ping -k 
+   12  ssh 172.31.0.12
+   13  ls
+   14  cat /root/.ssh/known_hosts 
+   15  ansible all -i inventory -u root -m ping -k 
+   16  ansible all -i inventory -u root -m command -a 'df -h' -k 
+   17  ansible all -i inventory -u root -m command -a 'uname -a' -k 
+   18  cat /etc/*-release 
+   19  ansible all -i inventory -u root -m command -a 'cat /etc/*-release' -k 
+   20  cat /etc/*-release 
+   21  ansible all -i inventory -u root -m command -a 'cat /etc/*-release' -k 
+   22  cat /etc/*-release 
+   23  ansible all -i inventory -u root -m shell -a 'cat /etc/*-release' -k 
+   24  ansible all -i inventory -u root -m shell -a 'df -h' -k 
+   25  history 
+   26  ls
+   27  cd ..
+   28  ls
+   29  history > history_Day4.txt
+   30  ls
+   31  cd ..
+   32  ls
+   33  cd ansible/
+   34  ls
+   35  cp -rf demo1 demo2
+   36  cd demo2/
+   37  ls
+   38  vim inventory 
+   39  ansible web -i inventory -u root -m shell -a 'df -h' -k 
+   40  ansible db -i inventory -u root -m shell -a 'df -h' -k 
+   41  ls
+   42  vim inventory 
+   43  passwd 
+   44  vi /etc/ssh/sshd_config 
+   45  service sshd restart
+   46  vim inventory 
+   47  ansible local -i inventory -u root -m shell -a 'df -h' -k 
+   48  ansible local -i inventory -u root -m shell -a 'df -h' -k -vvv
+   49  ssh 172.31.0.10
+   50  ansible local -i inventory -u root -m shell -a 'df -h' -k 
+   51  vi inventory 
+   52  ssh 127.0.0.1
+   53  vi inventory 
+   54  ansible all -i inventory -u root -m shell -a 'df -h' -k 
+   55  vi inventory 
+   56  ansible datacenter -i inventory -u root -m shell -a 'df -h' -k 
+   57  ansible datacenter -i inventory -u root -m shell -a 'uname -a ' -k 
+   58  vi inventory 
+   59  ansible datacenter -i inventory -m shell -a 'uname -a' 
+   60  ls
+   61  history  > ../history_Day4.txt 
+   62  ls
+   63  git add .
+   64  git commit -m "Ansible: Demo1 & Demo2"
+   65  git branch
+   66  git push origin prod
+   67  ls
+   68  cd ..
+   69  ls
+   70  cp -rf demo2 demo3
+   71  ls
+   72  cd demo3/
+   73  mkdir {prod,test}/{group_vars,host_vars} -p 
+   74  tree .
+   75  cp -rf inventory prod/
+   76  cp -rf inventory test/
+   77  ls
+   78  rm inventory 
+   79  tree 
+   80  vim prod/group_vars/all
+   81  cat  prod/inventory 
+   82  vim prod/group_vars/web
+   83  vim prod/group_vars/db
+   84  ls
+   85  tree .
+   86  ansible web -i prod/inventory -m user -a "name={{username}} password=12345"
+   87  4
+   88  ansible db -i prod/inventory -m user -a "name={{username}} password=12345"
+   89  ansible all -i prod/inventory -m user -a "name={{username}} password=12345"
+   90  ls
+   91  cat prod/inventory 
+   92  vim prod/host_vars/172.31.0.12
+   93  ansible all -i prod/inventory -m user -a "name={{username}} password=12345"
+   94  ls
+   95  vim prod/inventory 
+   96  ansible all -i prod/inventory -m user -a "name={{username}} password=12345"
+   97  tree .
+   98  cd ..
+   99  ls
+  100  tree demo3/
+  101  ls
+  102  vim demo3/prod/inventory 
+  103  ls
+  104  cd demo3/prod/host_vars/
+  105  ls
+  106  mv 172.31.0.12 db02
+  107  ls
+  108  cd ..
+  109  ls
+  110  cd ..
+  111  tree .
+  112  ansible all -i prod/inventory -m user -a "name={{username}} password=12345"
+  113  ls
+  114  cd ..
+  115  ls
+  116  history > history_Day4.txt 

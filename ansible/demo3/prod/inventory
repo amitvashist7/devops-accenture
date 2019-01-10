@@ -1,0 +1,26 @@
+172.31.0.11
+db02 ansible_ssh_host=172.31.0.12
+172.31.0.16
+172.31.0.15
+
+
+[web]
+172.31.0.11
+
+[db]
+db02
+172.31.0.10
+
+[local]
+172.31.0.10
+
+
+[datacenter:children]
+web
+db
+local
+
+
+[datacenter:vars]
+ansible_ssh_user=root
+ansible_ssh_pass=redhat

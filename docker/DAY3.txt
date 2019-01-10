@@ -482,3 +482,95 @@
   482  cd ..
   483  ls
   484  history > DAY3.txt 
+  485  git add . 
+  486  git commit -m "Docker Image creation"
+  487  git push 
+  488  ls
+  489  cat apache/Dockerfile 
+  490  ls
+  491  cd ../../
+  492  ls
+  493  git clone https://github.com/amitvashist7/docker-learner-CTS.git
+  494  ls
+  495  cd docker-learner-CTS/
+  496  ls
+  497  cd dockerfile/
+  498  ls
+  499  cp -rf python-apache /root/devops-accenture/docker/
+  500  cd /root/devops-accenture/docker/
+  501  ls
+  502  cd python-apache/
+  503  ls
+  504  cat app.py 
+  505  ls
+  506  cat req.txt 
+  507  vim Dockerfile 
+  508  docker build -t python-apache:v1 . 
+  509  docker images 
+  510  docker run -d -p 10001:80 python-apache:v1
+  511  docker run -d -p 10002:80 python-apache:v1
+  512  docker run -d -p 10003:80 python-apache:v1
+  513  docker ps 
+  514  ls
+  515  cd ..
+  516  ls
+  517  cd 
+  518  ls
+  519  cp -rf docker-learner-CTS/dockercompose /root/devops-accenture/
+  520  cd /root/devops-accenture/
+  521  ls
+  522  yum install python-pip -y 
+  523  pip install docker-compose
+  524  ls
+  525  cd dockercompose/
+  526  ls
+  527  cd hello-world/
+  528  ls
+  529  cat docker-compose.yml 
+  530  docker-compose up 
+  531  docker-compose ps
+  532  docker ps 
+  533  docker ps -a
+  534  ls
+  535  cd ..
+  536  ls
+  537  cd wordpress-compose/
+  538  ls
+  539  cd wordpress/
+  540  ls
+  541  cd ..
+  542  ls
+  543  cd ..
+  544  ls
+  545  cd prod-apache/
+  546  ls
+  547  cat Dockerfile 
+  548  cat abc.html 
+  549  ls
+  550  cat docker-compose.yml 
+  551  docker-compose up 
+  552  ls
+  553  vim Dockerfile 
+  554  docker-compose up 
+  555  docker-compose up -d 
+  556  docker-compose ps 
+  557  ls
+  558  cd ..
+  559  ls
+  560  cd wordpress-compose/
+  561  ls
+  562  vim docker-compose.yml 
+  563  ls
+  564  cat docker-compose.yml 
+  565  ls
+  566  mkdir db-data
+  567  ls
+  568  docker-compose up -f 
+  569  docker-compose up -d
+  570  docker-compose ps
+  571  ls
+  572  cd ..
+  573  ls
+  574  cd ..
+  575  ls
+  576  history > docker/DAY3.txt 

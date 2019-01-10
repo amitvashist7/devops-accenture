@@ -1,0 +1,7 @@
+--- 
+
+- name: Install NTP Client
+  yum: name=ntp state=present
+
+- name: Start NTPD Service
+  service: name=ntpd state=started enabled=true

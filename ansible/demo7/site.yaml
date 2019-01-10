@@ -1,0 +1,9 @@
+---
+
+- hosts: all
+     
+
+- include: webserver.yaml
+  tags: web
+- include: server-common.yaml
+  tags: common

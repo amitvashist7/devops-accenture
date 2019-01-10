@@ -1,0 +1,5 @@
+---
+
+- hosts: web:db
+  roles:
+  - server-common

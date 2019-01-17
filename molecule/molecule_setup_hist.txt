@@ -1,0 +1,16 @@
+    1  apt-get update
+    2  apt-get install     apt-transport-https     ca-certificates     curl     gnupg2     software-properties-common
+    3  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    4  add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+    5  apt-get update ;apt-get install docker-ce -y
+    6  apt-get install python python-pip ansible -y 
+    7  ls
+    8  python -m pip install virtualenv
+    9  python -m virtualenv my_venv
+   10  ls
+   11  source /root/my_venv/bin/activate
+   12  python -m pip install molecule docker ansible 
+   40  git clone --branch 'prod' https://github.com/amitvashist7/devops-accenture.git
+   47  history > molecule_setup_hist.txt

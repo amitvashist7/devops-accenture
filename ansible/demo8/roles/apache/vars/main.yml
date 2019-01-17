@@ -1,0 +1,5 @@
+---
+http_port: 80
+doc_root: /var/www/html/acc
+doc_dir: /acc/
+username: "Amit Vashist"

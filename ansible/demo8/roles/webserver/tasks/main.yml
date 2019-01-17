@@ -1,0 +1,14 @@
+---
+- name: Install Apache Packages
+  yum: name=httpd state=present
+- name: Start Apache Service
+  service: name=httpd state=started enabled=true
+- name: Create Site Location
+  file: path={{doc_root}} state=directory
+- name: Deploy Sample Site File
+  template: src=templates/index.j2 dest={{doc_root}}/index.html
+- name: Deploy Info Site File
+  template: src=templates/info.j2 dest={{doc_root}}/info.html
+  notify:
+    Restart Apache
+- debug: msg="Username is varible {{username}}"

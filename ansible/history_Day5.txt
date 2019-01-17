@@ -445,3 +445,104 @@
   445  cd ..
   446  ls
   447  history > history_Day5.txt
+  448  git add . 
+  449  git commit -m "Day History"
+  450  git push origin prod
+  451  ls
+  452  cd /etc/ansible/
+  453  ls
+  454  wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/ec2.py
+  455  ls
+  456  wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/ec2.ini
+  457  ls
+  458  chmod +x ec2.*
+  459  ls
+  460  export EC2_INI_PATH=/etc/ansible/ec2.ini
+  461  export ANSIBLE_HOSTS=/etc/ansible/ec2.py 
+  462  yum install python-pip -y 
+  463  pip install boto
+  464  pip install boto3
+  465  pip install awscli
+  466  aws configure
+  467  aws ec2 describe-subnets
+  468  date
+  469  date -s "$(wget -qSO- --max-redirect=0 google.com 2>&1 | grep Date: | cut -d' ' -f5-8)Z"
+  470  aws ec2 describe-subnets
+  471  ls
+  472  cd roles/
+  473  ls
+  474  ansible-galaxy init aws
+  475  ls
+  476  cd aws/
+  477  ls
+  478  vim tasks/main.yml 
+  479  ls
+  480  cd ../
+  481  ls
+  482  cd ..
+  483  ls
+  484  mkdir group_var 
+  485  vim group_var/all
+  486  ls
+  487  cat hosts 
+  488  ls
+  489  vim inventory
+  490  vim group_var/all 
+  491  ls
+  492  vim aws_ec2.yaml
+  493  ansible-playbook -i hosts aws_ec2.yaml 
+  494  ls
+  495  ls roles/
+  496  vim aws_ec2.yaml
+  497  ansible-playbook -i hosts aws_ec2.yaml 
+  498  ls
+  499  ansible-playbook -i hosts aws_ec2.yaml --vvv
+  500  ansible-playbook -i hosts aws_ec2.yaml 
+  501  vim roles/aws/tasks/main.yml 
+  502  ls
+  503  mv group_var/ group_vars
+  504  ansible-playbook -i hosts aws_ec2.yaml 
+  505  ls
+  506  ./ec2.py 
+  507  ls
+  508  cp -rf /root/devops-accenture/ansible/demo7/roles/webserver roles/
+  509  ls
+  510  vim /root/my-aws-ssh-key.pem
+  511  chmod 600 /root/my-aws-ssh-key.pem 
+  512  ls
+  513  vim group_vars/all 
+  514  ls
+  515  vim webserver_ec2.yaml
+  516  ls
+  517  cat group_vars/all 
+  518  vim webserver_ec2.yaml
+  519  ls
+  520  vim roles/webserver/tasks/main.yml 
+  521  ansible-playbook -i hosts aws_ec2.yaml 
+  522  ansible-playbook -i ./ec2.py webserver_ec2.yaml -u ec2-user --key-file=/root/my-aws-ssh-key.pem 
+  523  vi /etc/ansible/ansible.cfg 
+  524  ansible-playbook -i ./ec2.py webserver_ec2.yaml -u ec2-user --key-file=/root/my-aws-ssh-key.pem 
+  525  ls
+  526  cat roles/webserver/vars/main.yml 
+  527  vim roles/webserver/vars/main.yml 
+  528  vi /etc/ansible/ansible.cfg 
+  529  cat /root/.ssh/known_hosts 
+  530  ansible-playbook -i ./ec2.py webserver_ec2.yaml -u ec2-user --key-file=/root/my-aws-ssh-key.pem 
+  531  ./ec2.py 
+  532  ls
+  533  mkdir /root/devops-accenture/ansible/demo8
+  534  cp -rf * /root/devops-accenture/ansible/demo8/
+  535  cd /root/devops-accenture/ansible/demo8/
+  536  ls
+  537  rm -rf ansible.cfg 
+  538  ls
+  539  rm -rf *.retry
+  540  ls
+  541  git add . 
+  542  git commit -m "AWS & Web Deployment"
+  543  git push origin prod
+  544  history 
+  545  ls
+  546  cd ..
+  547  ls
+  548  history > history_Day5.txt
